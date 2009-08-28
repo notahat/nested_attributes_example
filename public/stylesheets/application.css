@@ -2,8 +2,11 @@ body { font: normal 14px/20px "Helvetica Neueu", Helvetica, Arial, sans-serif; w
 
 div#flash_notice { background-color: #ccffcc; padding: 10px; border: 1px solid green; margin: 20px 0; }
 
-table { margin: 20px 0; }
+h1 { margin-bottom: 0; }
+
+table { margin: 20px -5px; }
 th { text-align: left; font-weight: bold; }
+td,th { padding: 0 5px; }
 
 div.row  { margin: 20px 0; }
 div.task { margin: 10px 0; }

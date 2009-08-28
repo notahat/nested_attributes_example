@@ -1,18 +1,14 @@
 <h1>Projects</h1>
 
-<%= link_to "New project", new_project_path %>
-
 <table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
   <% @projects.each do |project| %>
     <tr>
       <td><%=h project.name %></td>
+      <td><%= pluralize(project.tasks.count, "task") %></td>
       <td><%= link_to "Edit", edit_project_path(project) %></td>
       <td><%= link_to "Destroy", project, :confirm => "Are you sure?", :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
+<%= link_to "New project", new_project_path %>
