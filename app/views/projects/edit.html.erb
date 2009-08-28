@@ -1,0 +1,10 @@
+<h1>Edit project</h1>
+
+<% form_for(@project) do |form| %>
+  <%= render :partial => "form", :object => form %>
+
+  <div class="row">
+    <%= form.submit "Update project" %> or <%= link_to "Cancel", projects_path %>
+  </div>
+<% end %>
+

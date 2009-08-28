@@ -1,0 +1,9 @@
+<h1>New project</h1>
+
+<% form_for(@project) do |form| %>
+  <%= render :partial => "form", :object => form %>
+
+  <div class="row">
+    <%= form.submit "Create project" %> or <%= link_to "Cancel", projects_path %>
+  </div>
+<% end %>

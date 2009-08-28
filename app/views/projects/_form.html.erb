@@ -1,0 +1,31 @@
+<% content_for :head do %>
+  <script type="text/javascript" charset="utf-8">
+    // <!--
+    var task_template = <%= generate_nested_model_template(form, :tasks).to_json %>;
+
+    document.observe("dom:loaded", function() {
+      $("add_task_link").observe("click", addNestedItem);
+      $("tasks").delegate("click", { ".remove_task_link": removeNestedItem });
+    });
+    // -->
+  </script>
+<% end %>
+
+<%= form.error_messages %>
+
+<div class="row">
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+</div>
+
+<fieldset>
+  <legend>Tasks</legend>
+
+  <div id="tasks">
+    <% form.fields_for :tasks do |fields| %>
+      <%= render :partial => "task", :locals => { :fields => fields } %>
+    <% end %>
+  </div>
+
+  <%= link_to "Add a task", "#task_template", :rel => "tasks", :id => "add_task_link" %>
+</fieldset>
