@@ -7,6 +7,8 @@ th { text-align: left; font-weight: bold; }
 
 div.row  { margin: 20px 0; }
 div.task { margin: 10px 0; }
+label { font-weight: bold; }
+input { font-size: 13px; }
 
 .fieldWithErrors { display: inline; }
 .fieldWithErrors input { background-color: #ffdddd; }

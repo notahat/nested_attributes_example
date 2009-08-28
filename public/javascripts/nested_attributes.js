@@ -17,9 +17,16 @@
  */
 function addNestedItem(event) { 
   var element = event.element();
+
   var template = eval(element.href.replace(/.*#/, ''));
   template = template.replace(/NEW_RECORD/g, new Date().getTime());
-  $(element.rel).insert({ bottom: template });
+
+  var container = $(element.rel);
+  container.insert({ bottom: template });
+  var newElement = container.childElements().last();
+
+  newElement.down("input,select,textarea").focus();
+
   event.stop();
 }
 
