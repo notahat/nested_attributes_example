@@ -1,9 +1,8 @@
 <% content_for :head do %>
   <script type="text/javascript" charset="utf-8">
     // <!--
-    var taskTemplate = <%= generate_nested_model_template(form, :tasks).to_json %>;
-
     document.observe("dom:loaded", function() {
+      var taskTemplate = <%= generate_nested_model_template(form, :tasks).to_json %>;
       $("add_task_link").observe("click", addNestedItem("tasks", taskTemplate));
       $("tasks").delegate("click", { ".remove_task_link": removeNestedItem("task") });
       $(document.forms[0]).focusFirstElement();
