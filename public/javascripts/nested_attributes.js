@@ -14,13 +14,12 @@
  * 3. Set the focus to the first form element inside the new item.
  */
 function addNestedItem(container, template) { 
+  container = $(container);
   return function(event) {
-    container = $(container);
-    template = template.replace(/NEW_RECORD/g, new Date().getTime());
+    var newItem = template.replace(/NEW_RECORD/g, new Date().getTime());
+    container.insert({ bottom: newItem });
 
-    container.insert({ bottom: template });
     var newElement = container.childElements().last();
-
     newElement.down("input,select,textarea").focus();
 
     event.stop();
